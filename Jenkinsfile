@@ -12,5 +12,14 @@ ls -alh
 '''
       }
     }
+    stage('build') {
+      steps {
+        sh '''#!/usr/bin/env bash
+set -ex
+
+echo 'build!'
+'''
+      }
+    }
   }
 }
