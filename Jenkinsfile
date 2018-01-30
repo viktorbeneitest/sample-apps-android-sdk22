@@ -8,6 +8,8 @@ set -ex
 
 uname -a
 sleep 10
+pwd
+sleep 10
 ls -alh > some-text-file.log
 '''
       }
