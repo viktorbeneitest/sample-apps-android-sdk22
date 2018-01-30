@@ -1,3 +1,4 @@
+// this is a single line comment
 pipeline {
   agent any
   stages {
