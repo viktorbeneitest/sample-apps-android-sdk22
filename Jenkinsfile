@@ -12,6 +12,11 @@ pwd
 sleep 10
 ls -alh > some-text-file.log
 '''
+        echo 'test msg'
+        timeout(time: 10) {
+          sleep 5
+        }
+        
       }
     }
     stage('build') {
