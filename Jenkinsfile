@@ -6,7 +6,7 @@ pipeline {
         sh '''#!/usr/bin/env bash
 set -ex
 
-name -a'''
+uname -a'''
       }
     }
   }
