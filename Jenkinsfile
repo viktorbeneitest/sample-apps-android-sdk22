@@ -51,8 +51,8 @@ cat some-text-file.log
     }
     stage('finishing') {
       steps {
-        sh 'echo \'we are done!\''
         sleep 30
+        sh 'echo \'we are done!\''
       }
     }
   }
