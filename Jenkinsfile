@@ -2,8 +2,10 @@ pipeline {
   agent any
   stages {
     stage('test') {
-      steps {
-        sh '''#!/usr/bin/env bash
+      parallel {
+        stage('test') {
+          steps {
+            sh '''#!/usr/bin/env bash
 set -ex
 
 uname -a
@@ -12,11 +14,20 @@ pwd
 sleep 10
 ls -alh > some-text-file.log
 '''
-        echo 'test msg'
-        timeout(time: 10) {
-          sleep 5
+            echo 'test msg'
+            timeout(time: 10) {
+              sleep 5
+            }
+            
+          }
         }
-        
+        stage('parallel-test-step') {
+          steps {
+            sh '''echo \'parallel!!\'
+sleep 10
+echo \'dun\''''
+          }
+        }
       }
     }
     stage('build') {
