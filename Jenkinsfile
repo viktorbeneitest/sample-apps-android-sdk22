@@ -31,12 +31,27 @@ echo \'dun\''''
       }
     }
     stage('build') {
-      steps {
-        sh '''#!/usr/bin/env bash
+      parallel {
+        stage('build') {
+          steps {
+            sh '''#!/usr/bin/env bash
 set -ex
 
 cat some-text-file.log
 '''
+          }
+        }
+        stage('stg') {
+          steps {
+            pwd(tmp: true)
+            input 'continue?'
+          }
+        }
+      }
+    }
+    stage('finishing') {
+      steps {
+        sh 'echo \'we are done!\''
       }
     }
   }
