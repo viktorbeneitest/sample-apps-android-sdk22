@@ -8,7 +8,7 @@ set -ex
 
 uname -a
 sleep 10
-ls -alh
+ls -alh > some-text-file.log
 '''
       }
     }
@@ -17,7 +17,7 @@ ls -alh
         sh '''#!/usr/bin/env bash
 set -ex
 
-echo 'build!'
+cat some-text-file.log
 '''
       }
     }
