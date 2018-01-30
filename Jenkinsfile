@@ -1,4 +1,3 @@
-// this is a single line comment
 pipeline {
   agent any
   stages {
@@ -53,6 +52,7 @@ cat some-text-file.log
     stage('finishing') {
       steps {
         sh 'echo \'we are done!\''
+        sleep 30
       }
     }
   }
